@@ -125,7 +125,7 @@ class manual:
     
     def run(self):
         
-        if gamepad.is_button_pressed("A"):
+        if gamepad.is_key_pressed("A"):
             self.states["shoot"] = not self.states["shoot"]
             
         if self.states["shoot"]:
