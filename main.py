@@ -77,18 +77,18 @@ class dc_motor:
         
 class mecanum_drive:
     
-    def __init__(self, left_front, left_right, front_left, front_right, deadzone=20):
+    def __init__(self, left_front, left_back, right_front, right_back, deadzone=20):
         self.left_front = encoder_motor_class(left_front, "INDEX1")
-        self.left_right = encoder_motor_class(left_right, "INDEX1")
-        self.front_left = encoder_motor_class(front_left, "INDEX1")
-        self.front_right = encoder_motor_class(front_right, "INDEX1")
+        self.left_back = encoder_motor_class(left_back, "INDEX1")
+        self.right_front = encoder_motor_class(right_front, "INDEX1")
+        self.right_back = encoder_motor_class(right_back, "INDEX1")
         self.deadzone = deadzone
         
-    def motor_drive(self, left_front_speed, left_right_speed, front_left_speed, front_right_speed):
+    def motor_drive(self, left_front_speed, left_back_speed, right_front_speed, right_back_speed):
         self.left_front.set_speed(left_front_speed)
-        self.left_right.set_speed(left_right_speed)
-        self.front_left.set_speed(front_left_speed)
-        self.front_right.set_speed(front_right_speed)
+        self.left_back.set_speed(left_back_speed)
+        self.right_front.set_speed(right_front_speed)
+        self.right_back.set_speed(right_back_speed)
     
     def drive(self, velocity_x, velocity_y, angular_velocity):
         # Use deadzone to prevent motor from moving when joystick is not touched
